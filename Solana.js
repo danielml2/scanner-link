@@ -1,24 +1,31 @@
 class Solana extends Coin{
-    address=new String('');
+    name=new String('');
 
-    constructor(address){
-        this.address=address;
+    constructor(){
+        this.name='Solana';
+    }
+    getName(){
+        return this.name;
     }
 
     isValid(address){
-        var isValid=false;
-        if(address.length>=32&&address.length<=44){
-           isValid=true;
-           return isValid;
-        }
-        else{
-            isValid=false;
-            return isValid;
-        }
+        return (address.length>=32&&address.length<=44);
     }
 
+    // isValid(address){
+    //     var isValid=false;
+    //     if(address.length>=32&&address.length<=44){
+    //        isValid=true;
+    //        return isValid;
+    //     }
+    //     else{
+    //         isValid=false;
+    //         return isValid;
+    //     }
+    // }
 
-    stringToPrint(){
+
+    getURL(address){
         return `https://solscan.io/account/${this.address}`;
 
     }

@@ -1,43 +1,31 @@
 class Litecoin extends Coin{
-    address=new String('');
+    name=new String('');
 
-    constructor(address){
-        this.address=address;
+    constructor(){
+        this.name='Litecoin';
+    }
+    getName(){
+        return this.name;
     }
 
     isValid(address){
         var isValid=false; 
-        if(address.startsWith('M')||address.startsWith('L')||address.startsWith('3')){
-            if(address.length>=26&&address.length<=34){
-                isValid=true;
-                return isValid;
-           }
-           else{
-            isValid=false;
-            return isValid;
-           }
+        if((address.startsWith('M')||address.startsWith('L')||address.startsWith('3'))&&(address.length>=26&&address.length<=34)){
+                isValid=true;      
         }
         else{ 
-
-             if(address.startsWith('ltc1')){
-                if(address.length>=30&&address.length<=34){
-                     isValid=true;
-                    return isValid;
-                }
-                else{
-                    isValid=false;
-                    return isValid;
-                   }
+             if((address.startsWith('ltc1'))&&(address.length>=30&&address.length<=34)){
+                     isValid=true;   
              }
              else{
                 isValid=false;
-                return isValid;
                }
         }
+        return isValid
     }
 
 
-    stringToPrint(){
+    getURL(address){
         return `https://live.blockcypher.com/ltc/address/${this.address}`;
 
     }

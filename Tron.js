@@ -1,31 +1,38 @@
 class Tron extends Coin{
-    address=new String('');
+    name=new String('');
 
-    constructor(address){
-        this.address=address;
+    constructor(){
+        this.name='Tron';
+    }
+    getName(){
+        return this.name;
     }
 
     isValid(address){
-        var isValid=false;
-        if(address.length==34){
-            if(address.startsWith('T')){
-                isValid= true;
-                return isValid;
-            }
-            else{
-                isValid=false;
-                return isValid;
-               
-            }
-        }
-        else{
-            isValid=false;
-            return isValid;
-        }
+        return (address.length==34)&&(address.startsWith('T'));
     }
 
+    // isValid(address){
+    //     var isValid=false;
+    //     if(address.length==34){
+    //         if(address.startsWith('T')){
+    //             isValid= true;
+    //             return isValid;
+    //         }
+    //         else{
+    //             isValid=false;
+    //             return isValid;
+               
+    //         }
+    //     }
+    //     else{
+    //         isValid=false;
+    //         return isValid;
+    //     }
+    // }
 
-    stringToPrint(){
+
+    getURL(address){
         return `https://tronscan.org/#/address/${this.address}`;
 
     }
