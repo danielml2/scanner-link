@@ -1,24 +1,32 @@
 class Polkadot extends Coin{
-    address=new String('');
+    name=new String('');
 
-    constructor(address){
-        this.address=address;
+    constructor(){
+        this.name='Polkadot';
+    }
+    getName(){
+        return this.name;
     }
 
     isValid(address){
-        var isValid=false;
-        if(address.length==48){
-           isValid=true;
-           return isValid;
-        }
-        else{
-            isValid=false;
-            return isValid;
-        }
+        return (address.length==48);
     }
 
 
-    stringToPrint(){
+    // isValid(address){
+    //     var isValid=false;
+    //     if(address.length==48){
+    //        isValid=true;
+    //        return isValid;
+    //     }
+    //     else{
+    //         isValid=false;
+    //         return isValid;
+    //     }
+    // }
+
+
+    getURL(address){
         return `https://polkadot.subscan.io/account/${this.address}`;
 
     }

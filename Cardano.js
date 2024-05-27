@@ -1,42 +1,31 @@
 class Cardano  extends Coin{
-    address=new String('');
+    name=new String('');
 
-    constructor(address){
-        this.address=address;
+    constructor(){
+        this.name='Cardano';
+    }
+    getName(){
+        return this.name;
     }
 
     isValid(address){
         var isValid=false; 
-        if(address.startsWith('Ae2')||address.startsWith('DdzFF')){
-            if(address.length>=50&&address.length<=58){
+        if((address.startsWith('Ae2')||address.startsWith('DdzFF'))&&(address.length>=50&&address.length<=58)){
                 isValid=true;
-                return isValid;
-           }
-           else{
-            isValid=false;
-            return isValid;
-           }
         }
         else{ 
 
-             if(address.startsWith('addr')||address.startsWith('stake')){
-                if(address.length>=50&&address.length<=59){
-                     isValid=true;
-                    return isValid;
-                }
-                else{
-                    isValid=false;
-                    return isValid;
-                   }
+             if((address.startsWith('addr')||address.startsWith('stake'))&&(address.length>=50&&address.length<=59)){
+                    isValid=true;
              }
              else{
                 isValid=false;
-                return isValid;
                }
         }
+        return isValid;
     }
 
-    stringToPrint(){
+    getURL(address){
         return `https://cardanoscan.io/address/${this.address}`;
 
     }

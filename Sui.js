@@ -1,30 +1,37 @@
 class Sui extends Coin{
-    address=new String('');
+    name=new String('');
 
-    constructor(address){
-        this.address=address;
+    constructor(){
+        this.name='Sui';
+    }
+    getName(){
+        return this.name;
     }
 
     isValid(address){
-        var isValid=false;
-        if(address.length==66){
-            if(address.startsWith('0x')){
-                isValid= true;
-                return isValid;
-            }
-            else{
-                isValid=false;
-                return isValid;
-               
-            }
-        }
-        else{
-            isValid=false;
-            return isValid;
-        }
+        return (address.length==66)&&(address.startsWith('0x'));
     }
 
-    stringToPrint(){
+    // isValid(address){
+    //     var isValid=false;
+    //     if(address.length==66){
+    //         if(address.startsWith('0x')){
+    //             isValid= true;
+    //             return isValid;
+    //         }
+    //         else{
+    //             isValid=false;
+    //             return isValid;
+               
+    //         }
+    //     }
+    //     else{
+    //         isValid=false;
+    //         return isValid;
+    //     }
+    // }
+
+    getURL(address){
         return `https://suiscan.xyz/mainnet/account/${this.address}/tx-blocks`;
 
     }

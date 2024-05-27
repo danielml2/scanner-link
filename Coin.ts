@@ -1,7 +1,8 @@
 interface Coin{
-    address?: string;
-    isValid: () =>boolean;
-    stringToPrint: () => string;
+    name?: string;
+    isValid: (address: string) =>boolean;
+    getURL: (address: string) => string;
+    getName:()=>string;
 }
 
 

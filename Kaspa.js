@@ -1,26 +1,33 @@
 class Kaspa extends Coin{
-    address=new String('');
+    name=new String('');
 
-    constructor(address){
-        this.address=address;
+    constructor(){
+        this.name='Kaspa';
+    }
+    getName(){
+        return this.name;
     }
 
     isValid(address){
-        var isValid=false;
-        
-            if(address.startsWith('kaspa:')){
-                isValid= true;
-                return isValid;
-            }
-            else{
-                isValid=false;
-                return isValid;
-               
-            }
-       
+        return (address.startsWith('kaspa:'));
     }
 
-    stringToPrint(){
+    // isValid(address){
+    //     var isValid=false;
+        
+    //         if(address.startsWith('kaspa:')){
+    //             isValid= true;
+    //             return isValid;
+    //         }
+    //         else{
+    //             isValid=false;
+    //             return isValid;
+               
+    //         }
+       
+    // }
+
+    getURL(address){
         return `https://explorer.kaspa.org/addresses/${this.address}`;
 
     }
