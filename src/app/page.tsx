@@ -6,7 +6,7 @@ import { COINS } from "../../coins/Coin";
 export default function Home() {
   const [address, setAddress] = useState("");
   const [displayCoins, setDisplayCoins] = useState<any[]>([]);
-
+  const [showResults, setShowResults] = useState(false);
 
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -35,7 +35,8 @@ export default function Home() {
             </button>
           </div>
           <div>
-            {displayCoins.map((displayCoin) => (
+            {showResults && displayCoins.length == 0 && <div className="py-10 text-xl">No wallets found</div>}
+            {showResults && displayCoins.length > 0 && displayCoins.map((displayCoin) => (
               <div className="py-10 text-xl" key={displayCoin.name}>{displayCoin.name}  <a href={displayCoin.url}><button className="btn btn-primary">Open Wallet in Scanner</button></a></div>
             ))}
           </div>
@@ -45,6 +46,7 @@ export default function Home() {
   );
 
   function scanAddress() {
+    setShowResults(true)
     let valid_addresses: any[] = [];
 
     COINS.forEach((coin) => {
