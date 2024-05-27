@@ -1,4 +1,15 @@
+"use client";
+
+import { SetStateAction, useState } from "react";
+import { COINS } from "./coins/Coin";
+import { Coiny } from "next/font/google";
+import { validateHeaderName } from "http";
+
 export default function Home() {
+  const [address, setAddress] = useState("");
+  const [displayCoins, setDisplayCoins] = useState<any[]>([]);
+
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content text-center">
@@ -10,11 +21,38 @@ export default function Home() {
               type="text"
               className="input w-full max-w-xs join-item"
               placeholder="Crypto address"
+              onChange={(event) => {
+                setAddress(event.currentTarget.value);
+              }}
+              onKeyDown={(event) => {
+                if(event.key == "Enter")
+                  scanAddress()  
+              }}
             ></input>
-            <button className="btn bg-orange-300 join-item rounded-r-full">Scan</button>
+            <button
+              className="btn bg-orange-300 join-item rounded-r-full"
+              onClick={() => scanAddress()}
+            >
+              Scan
+            </button>
+          </div>
+          <div>
+            {displayCoins.map((displayCoin) => (
+              <div key={displayCoin.name}>{displayCoin.name}:  {displayCoin.url}</div>
+            ))}
           </div>
         </div>
       </div>
     </div>
   );
+
+  function scanAddress() {
+    let valid_addresses: any[] = [];
+
+    COINS.forEach((coin) => {
+      if (coin.isValid(address))
+        valid_addresses.push({ name: coin.name, url: coin.getURL(address) });
+    });
+    setDisplayCoins(valid_addresses);
+  }
 }
