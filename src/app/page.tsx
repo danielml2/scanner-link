@@ -1,7 +1,7 @@
 "use client";
 
 import { SetStateAction, useState } from "react";
-import { COINS } from "./coins/Coin";
+import { COINS } from "../../coins/Coin";
 import { Coiny } from "next/font/google";
 import { validateHeaderName } from "http";
 
@@ -51,7 +51,7 @@ export default function Home() {
 
     COINS.forEach((coin) => {
       if (coin.isValid(address))
-        valid_addresses.push({ name: coin.name, url: coin.getURL(address) });
+        valid_addresses.push({ name: coin.name, url: coin.getURL(address)});
     });
     setDisplayCoins(valid_addresses);
   }
