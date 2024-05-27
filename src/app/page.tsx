@@ -1,9 +1,7 @@
 "use client";
 
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import { COINS } from "../../coins/Coin";
-import { Coiny } from "next/font/google";
-import { validateHeaderName } from "http";
 
 export default function Home() {
   const [address, setAddress] = useState("");
@@ -38,7 +36,7 @@ export default function Home() {
           </div>
           <div>
             {displayCoins.map((displayCoin) => (
-              <div key={displayCoin.name}>{displayCoin.name}:  {displayCoin.url}</div>
+              <div className="py-10 text-xl" key={displayCoin.name}>{displayCoin.name}  <a href={displayCoin.url}><button className="btn btn-primary">Open Wallet in Scanner</button></a></div>
             ))}
           </div>
         </div>
