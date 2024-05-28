@@ -6,12 +6,12 @@ export class Cardano implements Coin{
 
     isValid(address: string){
         var isValid=false; 
-        if((address.startsWith('Ae2')||address.startsWith('DdzFF'))&&(address.length>=50&&address.length<=58)){
+        if(address.startsWith('Ae2')||address.startsWith('DdzFF')){
                 isValid=true;
         }
         else{ 
 
-             if((address.startsWith('addr')||address.startsWith('stake'))&&(address.length>=50&&address.length<=59)){
+             if(address.startsWith('addr')||address.startsWith('stake')){
                     isValid=true;
              }
              else{
@@ -20,7 +20,7 @@ export class Cardano implements Coin{
         }
         return isValid;
     }
-
+    
     getURL(address: string){
         return `https://cardanoscan.io/address/${address}`;
 
