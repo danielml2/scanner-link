@@ -10,12 +10,12 @@ class Cardano  extends Coin{
 
     isValid(address){
         var isValid=false; 
-        if((address.startsWith('Ae2')||address.startsWith('DdzFF'))&&(address.length>=50&&address.length<=58)){
+        if(address.startsWith('Ae2')||address.startsWith('DdzFF')){
                 isValid=true;
         }
         else{ 
 
-             if((address.startsWith('addr')||address.startsWith('stake'))&&(address.length>=50&&address.length<=59)){
+             if(address.startsWith('addr')||address.startsWith('stake')){
                     isValid=true;
              }
              else{
