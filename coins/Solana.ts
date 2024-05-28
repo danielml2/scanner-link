@@ -5,7 +5,7 @@ export class Solana implements Coin{
 
 
     isValid(address: string){
-        return (address.length>=32&&address.length<=44);
+       return ((address.length>=32&&address.length<=44)&&(!address.startsWith('0x')||!address.startsWith('0X')));
     }
 
     getURL(address: string){
