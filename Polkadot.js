@@ -11,6 +11,7 @@ class Polkadot extends Coin{
  
     isValid(address){
         const apiUrl = `https://polkadot-public-sidecar.parity-chains.parity.io/accounts/${this.address}/validate`;
+         isValid=false;
         fetch(apiUrl)
     
             .then(response => {
