@@ -45,14 +45,22 @@ export default function Home() {
     </div>
   );
 
-  function scanAddress() {
+  async function scanAddress() {
     setShowResults(true)
     let valid_addresses: any[] = [];
 
-    COINS.forEach((coin) => {
-      if (coin.isValid(address))
-        valid_addresses.push({ name: coin.name, url: coin.getURL(address)});
-    });
-    setDisplayCoins(valid_addresses);
+    let coinPromises = COINS.map((coin) => new Promise<any>(async (resolve) => {
+      let valid = await coin.isValid(address)
+      resolve(valid ? { name: coin.name, url: coin.getURL(address)} : null)
+    }))
+
+    let results = await Promise.allSettled(coinPromises)
+    results.filter((result => result != null && result.status == "fulfilled")).map((result) => result as PromiseFulfilledResult<any>).forEach((result) => {
+      if(result.value != null)
+        {
+          valid_addresses.push(result.value);
+          setDisplayCoins(valid_addresses);
+        }
+    })
   }
 }

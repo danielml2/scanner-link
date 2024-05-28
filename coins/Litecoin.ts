@@ -4,19 +4,19 @@ export class Litecoin implements Coin{
     name='Litecoin'
 
     isValid(address: string){
-        var isValid=false; 
+        let valid=false; 
         if((address.startsWith('M')||address.startsWith('L')||address.startsWith('3'))&&(address.length>=26&&address.length<=34)){
-                isValid=true;      
+                valid=true;      
         }
         else{ 
              if((address.startsWith('ltc1'))&&(address.length>=30&&address.length<=34)){
-                     isValid=true;   
+                     valid=true;   
              }
              else{
-                isValid=false;
+                valid=false;
                }
         }
-        return isValid
+        return new Promise<boolean>((resolve) => resolve(valid))
     }
 
 

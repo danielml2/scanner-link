@@ -7,24 +7,24 @@ export class Bitcoin implements Coin {
 
 
     isValid(address: string){
-        var isValid=false;
+        let valid=false;
         if((address.length==62)&&(address.startsWith('bc1p'))){
-                isValid= true;
+                valid= true;
         }
         else{
             if((address.length==42)&&(address.startsWith('bc1q'))){
-                    isValid= true;
+                    valid= true;
             }
             else{
                 if((address.length==34)&&(address.startsWith('1')||address.startsWith('3'))){
-                        isValid= true;
+                        valid= true;
                 }
                 else{
-                    isValid=false;
+                    valid=false;
                 }
             }
         }
-        return isValid;
+        return new Promise<boolean>((resolve) => resolve(valid));
 
     }
 

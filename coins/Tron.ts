@@ -4,7 +4,7 @@ export class Tron implements Coin{
     name = 'Tron'
 
     isValid(address: string){
-        return (address.length==34)&&(address.startsWith('T'));
+        return new Promise<boolean>((resolve) => resolve((address.length==34)&&(address.startsWith('T'))));
     }
 
 

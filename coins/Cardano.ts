@@ -5,20 +5,20 @@ export class Cardano implements Coin{
     name='Cardano';
 
     isValid(address: string){
-        var isValid=false; 
+        let valid=false; 
         if(address.startsWith('Ae2')||address.startsWith('DdzFF')){
-                isValid=true;
+                valid=true;
         }
         else{ 
 
              if(address.startsWith('addr')||address.startsWith('stake')){
-                    isValid=true;
+                    valid=true;
              }
              else{
-                isValid=false;
+                valid=false;
                }
         }
-        return isValid;
+        return new Promise<boolean>((resolve) => resolve(valid));
     }
     
     getURL(address: string){

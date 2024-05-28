@@ -4,7 +4,7 @@ export class Sui implements Coin{
     name='Sui';
 
     isValid(address: string){
-        return (address.length==66)&&(address.startsWith('0x'));
+        return new Promise<boolean>((resolve) => resolve((address.length==66)&&(address.startsWith('0x'))));
     }
 
 

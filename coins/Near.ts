@@ -5,7 +5,7 @@ export class Near implements Coin{
 
 
     isValid(address: string){
-        return (address.length==64)||(address.endsWith('.near')||address.endsWith('.tg')||address.endsWith('.Sweat')||address.endsWith('.kaiching'));
+        return new Promise<boolean>((resolve) => resolve((address.length==64)||(address.endsWith('.near')||address.endsWith('.tg')||address.endsWith('.Sweat')||address.endsWith('.kaiching'))));
     }
 
     getURL(address: string){

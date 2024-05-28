@@ -5,7 +5,7 @@ export class EVM implements Coin{
 
 
     isValid(address: string){
-        return (address.length==42)&&((address.startsWith('0x'))||(address.startsWith('0X')));
+        return new Promise<boolean>((resolve) => resolve((address.length==42)&&((address.startsWith('0x'))||(address.startsWith('0X')))));
     }
 
 

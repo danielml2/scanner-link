@@ -15,7 +15,7 @@ import { Tron } from "./Tron"
 
 export interface Coin {
     name: string,
-    isValid : (address : string) => boolean
+    isValid : (address : string) => Promise<boolean>
     getURL : (address : string) => string
 }
 
