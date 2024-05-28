@@ -46,7 +46,6 @@ export default function Home() {
   );
 
   async function scanAddress() {
-    setShowResults(true)
     let valid_addresses: any[] = [];
 
     let coinPromises = COINS.map((coin) => new Promise<any>(async (resolve) => {
@@ -57,10 +56,9 @@ export default function Home() {
     let results = await Promise.allSettled(coinPromises)
     results.filter((result => result != null && result.status == "fulfilled")).map((result) => result as PromiseFulfilledResult<any>).forEach((result) => {
       if(result.value != null)
-        {
           valid_addresses.push(result.value);
-          setDisplayCoins(valid_addresses);
-        }
     })
+    setDisplayCoins(valid_addresses);
+    setShowResults(true)
   }
 }
