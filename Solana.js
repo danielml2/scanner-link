@@ -9,7 +9,7 @@ class Solana extends Coin{
     }
 
     isValid(address){
-        return (address.length>=32&&address.length<=44);
+        return ((address.length>=32&&address.length<=44)&&(!address.startsWith('0x')||!address.startsWith('0X')));
     }
 
     // isValid(address){
