@@ -8,9 +8,29 @@ class Polkadot extends Coin{
         return this.name;
     }
 
+ 
     isValid(address){
-        return (address.length==48);
+        const apiUrl = `https://polkadot-public-sidecar.parity-chains.parity.io/accounts/${this.address}/validate`;
+        fetch(apiUrl)
+    
+            .then(response => {
+                  if (!response.ok) {
+                       throw new Error('Network response was not ok');
+                     }
+               return response.json();
+             })
+            .then(data => {
+                  this.isValid=data.isValid;
+                 })
+            .catch(error => {
+                  console.error('Error:', error);
+            });
+        return this.isValid;
     }
+
+    // isValid(address){
+    //     return (address.length==48);
+    // }
 
 
     // isValid(address){
@@ -27,6 +47,7 @@ class Polkadot extends Coin{
 
 
     getURL(address){
+       
         return `https://polkadot.subscan.io/account/${this.address}`;
 
     }
