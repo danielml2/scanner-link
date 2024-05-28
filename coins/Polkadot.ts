@@ -5,6 +5,7 @@ export class Polkadot implements Coin{
 
     isValid(address: string){
         const apiUrl = `https://polkadot-public-sidecar.parity-chains.parity.io/accounts/${this.address}/validate`;
+         isValid=false;
         fetch(apiUrl)
     
             .then(response => {
