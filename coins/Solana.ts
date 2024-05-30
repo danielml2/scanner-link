@@ -1,12 +1,20 @@
 import { Coin } from "./Coin";
+import {PublicKey} from '@solana/web3.js';
 
 export class Solana implements Coin{
     name='Solana';
 
 
-    isValid(address: string){
-       return new Promise<boolean>((resolve) => resolve(((address.length>=32&&address.length<=44)&&(!address.startsWith('0x')||!address.startsWith('0X')))));
-    }
+    isValid(address){
+            try {
+                let pubkey = new PublicKey(address);
+                let isValidBol =  PublicKey.isOnCurve(pubkey.toBuffer());
+            } catch (error) {
+                isValidBol=false;
+            }
+            return isValidBol;
+        }     
+
     
 
     getURL(address: string){
