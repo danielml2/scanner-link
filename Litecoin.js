@@ -14,7 +14,7 @@ class Litecoin extends Coin{
                 isValid=true;      
         }
         else{ 
-             if((address.startsWith('ltc1'))&&(address.length>=30&&address.length<=34)){
+             if(address.startsWith('ltc1')){
                      isValid=true;   
              }
              else{
