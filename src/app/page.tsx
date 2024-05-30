@@ -1,20 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { COINS } from "../../coins/Coin";
 
 export default function Home() {
   const [address, setAddress] = useState("");
   const [displayCoins, setDisplayCoins] = useState<any[]>([]);
   const [showResults, setShowResults] = useState(false);
+  const [text, setText] = useState("Sui")
+
+  useEffect(() => {
+    let coin_names: string[] = COINS.map((coin) => coin.name);
+
+    let index = 0;
+    console.log(coin_names)
+    let text_loop = setInterval(() => {
+      setText(coin_names[index])
+      index += 1;
+      index %= coin_names.length;
+    }, 2250)
+    return () => {
+      clearInterval(text_loop)
+    }
+  }, [])
 
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-gradient-to-tr from-orange-200 to-sky-200 ">
       <div className="hero-content text-center">
         <div className="max-w-md">
-          <h2 className="text-3xl font-bold">Scanner Link</h2>
-          <p className="py-3">Your browser for the crypto network</p>
-          <div className="join">
+        <h2 className="text-5xl font-bold pb-2">Scanner Link</h2>
+        <div className="text-md italic pb-5">Your browser for the crytpo network</div>
+        <div className="text-2xl pt-2 pb-4">Find any <span key={text} className="bg-gradient-to-br from-orange-500 via-slate-400 to-sky-400 bg-clip-text text-transparent font-bold fadeAndDropClass">{text}</span> wallet address</div>
+          <div className="join py-3">
             <input
               type="text"
               className="input w-full max-w-xs join-item"
@@ -30,7 +47,7 @@ export default function Home() {
               className="btn bg-orange-300 join-item rounded-r-full"
               onClick={() => scanAddress()}
             >
-              Scan
+              🔎 Scan
             </button>
           </div>
           <div>

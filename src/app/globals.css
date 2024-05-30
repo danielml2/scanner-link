@@ -31,3 +31,18 @@ body {
     text-wrap: balance;
   }
 }
+
+.fadeAndDropClass {
+  animation: fadeAndDrop 2s forwards;
+}
+
+@keyframes fadeAndDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-60%);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0%);
+  }
+}
