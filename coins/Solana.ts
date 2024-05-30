@@ -12,7 +12,7 @@ export class Solana implements Coin{
             } catch (error) {
                 isValidBol=false;
             }
-            return isValidBol;
+            return Promise<boolean>((resolve) => resolve(valid));
         }     
 
     
