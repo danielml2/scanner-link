@@ -25,8 +25,8 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="hero min-h-screen bg-gradient-to-tr from-orange-200 to-sky-200 ">
-      <div className="hero-content text-center">
+    <div className=" min-h-screen bg-gradient-to-tr from-orange-200 to-sky-200 ">
+      <div className="absolute p-4 text-center transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
         <div className="max-w-md">
         <h2 className="text-5xl font-bold pb-2">Scanner Link</h2>
         <div className="text-md italic pb-5">Your browser for the crytpo network</div>
@@ -50,17 +50,18 @@ export default function Home() {
               🔎 Scan
             </button>
           </div>
-          <div>
+          <div className="">
             {showResults && displayCoins.length == 0 && (
               <div className="py-10 text-xl">No wallets found</div>
             )}
             {showResults && displayCoins.length > 0 && (
-              <ul className="max-w-md ">
+              <ul className="">
                 {displayCoins.map((coin) => generateElementForCoin(coin))}
               </ul>
             )}
           </div>
         </div>
+        
       </div>
     </div>
   );
@@ -92,9 +93,9 @@ export default function Home() {
   function generateElementForCoin(displayCoin: any) {
     return (
       <div>
-        <li className="py-3"></li>
+        <li className="py-3 isolate flex-0 max-w-96 min-w-96"></li>
         <li className="py-3 shadow-md  bg-sky-200 rounded-xl">
-          <div className="flex items-center space-x-4 rtl:space-x-reverse">
+          <div className="flex items-center space-x-4 rtl:space-x-reverse flex-grow-0">
             <div className="flex-shrink-0 pl-2">
               <img
                 className="w-14 h-14 rounded-full"
