@@ -5,7 +5,7 @@ export class Solana implements Coin{
     name='Solana';
 
 
-    isValid(address){
+    isValid(address: string){
             try {
                 let pubkey = new PublicKey(address);
                 let isValidBol =  PublicKey.isOnCurve(pubkey.toBuffer());
