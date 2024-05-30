@@ -1,7 +1,7 @@
 import { Coin } from "./Coin";
 
 export class EVM implements Coin{
-    name= 'EVM/Etherum';
+    name= 'EVM';
 
 
     isValid(address: string){
