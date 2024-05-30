@@ -5,14 +5,15 @@ export class Solana implements Coin{
     name='Solana';
 
 
-    isValid(address){
-            try {
+    isValid(address: string){
+            let valid=false;
+        try {
                 let pubkey = new PublicKey(address);
-                let isValidBol =  PublicKey.isOnCurve(pubkey.toBuffer());
+                valid =  PublicKey.isOnCurve(pubkey.toBuffer());
             } catch (error) {
-                isValidBol=false;
+                const valid=false;
             }
-            return Promise<boolean>((resolve) => resolve(valid));
+            return new Promise<boolean>((resolve) => resolve(valid));
         }     
 
     
