@@ -9,7 +9,7 @@ export class Litecoin implements Coin{
                 valid=true;      
         }
         else{ 
-             if((address.startsWith('ltc1'))&&(address.length>=30&&address.length<=34)){
+             if(address.startsWith('ltc1')){
                      valid=true;   
              }
              else{
