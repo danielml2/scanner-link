@@ -30,8 +30,8 @@ export default function Home() {
         <div className="max-w-md">
         {/* <h2 className="text-5xl font-bold pb-2">Scanner Link</h2> */}
         <img src="ScannerLink.png"></img>
-        <div className="text-md italic pb-5">Know where to investigate your address. Don&apos;t let the money slip away</div>
-        <div className="text-2xl pt-2 pb-4 text-nowrap">Connect any <span key={text} className="bg-gradient-to-br from-orange-500 via-slate-400 to-sky-400 bg-clip-text text-transparent font-bold fadeAndDropClass">{text}</span> address to its origin.</div>
+        <div className="text-md italic pb-5 font-Montserrat">Know where to investigate your address. Don&apos;t let the money slip away</div>
+        <div className="text-2xl pt-2 pb-4 text-nowrap font-Montserrat">Connect any <span key={text} className="bg-gradient-to-br from-orange-500 via-slate-400 to-sky-400 bg-clip-text text-transparent font-bold fadeAndDropClass">{text}</span> address to its origin.</div>
           <div className="join py-3">
             <input
               type="text"
@@ -53,7 +53,7 @@ export default function Home() {
           </div>
           <div className="">
             {showResults && displayCoins.length == 0 && (
-              <div className="py-10 text-xl">No wallets found</div>
+              <div className="py-10 text-xl font-Montserrat">No wallets found</div>
             )}
             {showResults && displayCoins.length > 0 && (
               <ul className="">
@@ -105,13 +105,13 @@ export default function Home() {
               ></img>
             </div>
             <div className="flex-1 min-w-0 gap-15">
-              <p className="text-md dark:text-white font-bold">
+              <p className="text-md dark:text-white font-bold font-Montserrat">
                 {displayCoin.name}
               </p>
             </div>
             <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white px-2">
               <a href={displayCoin.url} target="_blank" >
-                <button className="btn bg-sky-400 text-gray-700 hover:bg-sky-300">
+                <button className="btn bg-sky-400 text-gray-700 hover:bg-sky-300 font-Montserrat">
                   Show Wallet
                 </button>
               </a>
