@@ -28,9 +28,10 @@ export default function Home() {
     <div className=" min-h-screen bg-gradient-to-tr from-orange-200 to-sky-200 ">
       <div className="absolute p-4 text-center transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
         <div className="max-w-md">
-        <h2 className="text-5xl font-bold pb-2">Scanner Link</h2>
-        <div className="text-md italic pb-5">Your browser for the crytpo network</div>
-        <div className="text-2xl pt-2 pb-4">Find any <span key={text} className="bg-gradient-to-br from-orange-500 via-slate-400 to-sky-400 bg-clip-text text-transparent font-bold fadeAndDropClass">{text}</span> wallet address</div>
+        {/* <h2 className="text-5xl font-bold pb-2">Scanner Link</h2> */}
+        <img src="ScannerLink.png"></img>
+        <div className="text-md italic pb-5">Know where to investigate your address. Don&apos;t let the money slip away</div>
+        <div className="text-2xl pt-2 pb-4 text-nowrap">Connect any <span key={text} className="bg-gradient-to-br from-orange-500 via-slate-400 to-sky-400 bg-clip-text text-transparent font-bold fadeAndDropClass">{text}</span> address to its origin.</div>
           <div className="join py-3">
             <input
               type="text"
