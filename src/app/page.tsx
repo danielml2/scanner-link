@@ -32,11 +32,11 @@ export default function Home() {
         {/* <h2 className="text-5xl font-bold pb-2">Scanner Link</h2> */}
         <img src="ScannerLink.png"></img>
         <div className="text-md italic pb-5 font-Montserrat">Know where to investigate your address. Don&apos;t let the money slip away</div>
-        <div className="text-2xl pt-2 pb-4 text-nowrap font-Montserrat">Connect any <span key={text} className="bg-gradient-to-br from-orange-500 via-slate-400 to-sky-400 bg-clip-text text-transparent font-bold fadeAndDropClass">{text}</span> address to its origin.</div>
+        <div className="text-2xl pt-2 pb-4 text-nowrap font-Montserrat">Connect any <span key={text} className="bg-gradient-to-br from-orange-500 via-slate-400 to-sky-400 bg-clip-text text-transparent font-bold fadeAndDropClass inline-block text-nowrap px-2">{text}</span> address to its origin.</div>
           <div className="join py-3">
             <input
               type="text"
-              className="input w-full max-w-xs join-item"
+              className="input w-full max-w-xs join-item dark:bg-white dark:text-gray-500"
               placeholder="Crypto address"
               onChange={(event) => {
                 setAddress(event.currentTarget.value);
@@ -46,7 +46,7 @@ export default function Home() {
               }}
             ></input>
             <button
-              className="btn bg-orange-300 join-item rounded-r-full"
+              className="btn bg-orange-300 join-item rounded-r-full dark:text-white"
               onClick={() => scanAddress()}
             >
               🔎 Scan
