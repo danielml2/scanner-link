@@ -38,6 +38,10 @@ body {
   animation: fadeAndDrop 2s forwards;
 }
 
+.spinBox {
+  animation: spin infinite linear 2.5s;
+}
+
 @keyframes fadeAndDrop {
   0% {
     opacity: 0;
@@ -48,3 +52,13 @@ body {
       transform: translateY(0%);
   }
 }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

@@ -8,6 +8,7 @@ export default function Home() {
   const [displayCoins, setDisplayCoins] = useState<any[]>([]);
   const [showResults, setShowResults] = useState(false);
   const [text, setText] = useState("Sui")
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     let coin_names: string[] = COINS.map((coin) => coin.name);
@@ -52,6 +53,7 @@ export default function Home() {
             </button>
           </div>
           <div className="">
+            {loading && <img src="spin.png" className="w-32 h-32 spinBox mx-auto"></img>}
             {showResults && displayCoins.length == 0 && (
               <div className="py-10 text-xl font-Montserrat">No wallets found</div>
             )}
@@ -68,7 +70,10 @@ export default function Home() {
   );
 
   async function scanAddress() {
+    setLoading(true)
     let valid_addresses: any[] = [];
+    setDisplayCoins([])
+    setShowResults(false)
 
     let coinPromises = COINS.map(
       (coin) =>
@@ -88,6 +93,7 @@ export default function Home() {
         if (result.value != null) valid_addresses.push(result.value);
       });
     setDisplayCoins(valid_addresses);
+    setLoading(false)
     setShowResults(true);
   }
 
